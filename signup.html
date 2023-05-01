@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+    form {
+        border: 3px solid #f1f1f1;
+      }
+      input[type=email], input[type=text] 
+      input[type=password]input[type=confirmpassword]{
+        width: 100%;
+        padding: 12px 12px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ab5f5f;
+        box-sizing: border-box;
+      }
+      button {
+        
+        color: rgb(20, 28, 142);
+        padding: 5px 5px;
+        margin: 4px 0;
+       
+        cursor: pointer;
+        width: 50%;
+       margin-left: 60px;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+       form{
+        background-color: rgb(238, 235, 241);
+       margin-left: auto;
+       margin-right: auto;
+       width: fit-content;
+       padding: 5px;
+       margin-top: 80px;
+       width: 500px;
+
+       }
+       body{
+        background-color: rgb(32, 74, 79);
+       }
+ </style>
+ <script>
+    function validation(){
+        var fname= document.myform.fname.value;
+        var lname=document.myform.lname.value;
+        var pnum=document.myform.pnum.value;
+        var password=document.myform.password.value;
+        var passlen=password.length;
+        var email=document.myform.email.value;
+        var atpos=email.indexOf('@');
+        var dotpos=email.indexOf('.');
+        if(fname==""){
+            alert("Enter first name");
+            document.myform.fname.focus();
+            return false;
+        }
+        if(fname.length<6){
+            alert("enter name greater than 6 letters");
+            document.myform.fname.focus();
+            return false;
+        }
+        if(lname==""){
+            alert("Enter last name");
+            document.myform.lname.focus();
+            return false;
+        }
+        if(lname.length<6){
+            alert("enter lastname greater than 6 letters");
+            document.myform.lname.focus();
+            return false;
+        }
+        
+        if(document.getElementById('radio').checked != true && document.getElementById('radios').checked != true) {   
+            alert("select gender");
+            return false;
+           } 
+           
+           if(email==""){
+               alert("Enter email");
+               document.myform.email.focus();
+               return false;
+           }
+           
+               if(atpos==0){
+                   alert("@ is 0");
+                   return false;
+               }
+               if(dotpos-atpos<=2){
+                   alert("@ 2 .");
+                   return false;
+               }
+               if(email.length-dotpos<=2){
+                   alert("last");
+                   return false;
+               }
+           if(pnum.length!=10){
+               alert("Enter Phone Number");
+               document.myform.pnum.focus();
+               return false;
+           }
+        if(password==""){
+            alert("enter password");
+            document.myform.password.focus();
+            return false;
+        }
+        if(password.length<6){
+            alert("enter password greater than 6 letters");
+            document.myform.password.focus();
+            return false;
+        }
+
+        
+
+        return true;
+    }
+ </script>
+</head>
+<body>
+
+ <form action="./login.html" method="post"name="myform" onsubmit="return validation()">
+    <h2>Signup</h2>
+ <table>
+ 
+<tr>
+    <td>fname:</td>
+    <td><input type="name" name="fname"></td>
+</tr>
+<tr>
+    <td>lname:</td>
+    <td><input type="name" name="lname"></td>
+</tr>
+ <tr>
+ <td>Email:</td>
+ <td><input type="text" name="email" id=""></td>
+ </tr>
+ <tr>
+ <td>Gender:</td>
+ <td><input type="radio" name="gender" value="male">
+ <label for="Male">Male</label>
+ <input type="radio" name="gender" value="Female">
+ <label for="Female">Female</label>
+ <input type="radio"  name="gender" value="others">
+ <label for="others">Others</label></td>
+</tr>
+<tr>
+<td> pnum:</td>
+<td><input type="tel" id="phone" name="pnum" ></td>
+</tr>
+ <tr>
+ <td>Password</td>
+ <td><input type="password" name="password" id=""></td>
+ </tr>
+ <tr>
+ <td>Confirm Password</td>
+ <td><input type="password" name="confirmpassword" id=""></td>
+ </tr>
+ <tr>
+    <td colspan="2">
+   <input type="submit" value="submit">
+    </td>
+    </tr> 
+ </table>
+ </form>
+</body>
+</html>
